@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImmiGenius - Your US Immigration Path</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --primary-color: #C4B8A7; /* Elegant beige from the logo */
+            --text-color: #f0f0f0;
+            --dark-accent: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        .header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            width: 250px;
+            height: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s;
+            animation-fill-mode: backwards;
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.4s;
+            animation-fill-mode: backwards;
+        }
+
+        /* Choices Section */
+        .choices-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .choice-card {
+            background-color: var(--dark-accent);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 400px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+        
+        .choice-card:nth-child(2) {
+             animation-delay: 0.8s;
+        }
+
+        .choice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(196, 184, 167, 0.1);
+        }
+
+        .choice-card .step {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .choice-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .choice-card p {
+             font-weight: 300;
+             margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #d8cbb9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .about-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .about p {
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .about a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .footer-logo {
+            height: 25px;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .choices-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .choice-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <!-- ImmiGenius Logo -->
+            <img src="immigenius-logo.png" alt="ImmiGenius Logo" class="logo">
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Your Path to a US Green Card, <span>Simplified.</span></h1>
+                <p>Navigating employment-based immigration can be complex. We provide clear, dedicated tools to guide your journey, whether you're just starting or ready to file.</p>
+            </div>
+        </section>
+
+        <section class="choices">
+            <div class="container">
+                <div class="choices-container">
+                    
+                    <!-- I-140 Card -->
+                    <div class="choice-card" onclick="window.open('https://i140.immigenius.us', '_blank')">
+                        <div class="step">Step 1</div>
+                        <h2>I-140 Petition</h2>
+                        <p>Prove your eligibility for the National Interest Waiver (NIW). Our evaluation tool will assess your profile and provide clear next steps.</p>
+                        <a href="https://i140.immigenius.us" target="_blank" class="cta-button">Evaluate My Profile</a>
+                    </div>
+                    
+                    <!-- I-485 Card -->
+                    <div class="choice-card" onclick="window.open('https://immigenius.us', '_blank')">
+                        <div class="step">Step 2</div>
+                        <h2>I-485 Application</h2>
+                        <p>Ready to adjust your status? Once your I-140 is approved, our next tool simplifies the final step to receiving your Green Card.</p>
+                        <a href="https://immigenius.us" target="_blank" class="cta-button">Start My Application</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h3>Built From Experience</h3>
+                    <p>
+                        After successfully navigating the self-petition process for my own Green Card, I've helped many others organize their profiles for the National Interest Waiver. Together with Abdullah Al Masrur, we built ImmiGenius to make this journey simpler and more accessible for everyone.
+                        <br>
+                        <a href="https://abrarfaiyaz.github.io/cv/" target="_blank">View My Profile</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ImmiGenius powered by FLY AI Solutions LLC</p>
+            <img src="flyai-logo.png" alt="FLY AI Solutions LLC Logo" class="footer-logo">
+        </div>
+    </footer>
+
+    <script>
+        // This script adds a class to elements when they become visible in the viewport, triggering animations.
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            // Observe the 'about' section for the scroll animation
+            const aboutContent = document.querySelector('.about-content');
+            if (aboutContent) {
+                observer.observe(aboutContent);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
